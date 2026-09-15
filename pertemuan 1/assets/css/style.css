@@ -245,3 +245,28 @@ footer {
         grid-template-columns: repeat(1, 1fr);
     }
 }
+
+/* Tampilan pesan error dari JS */
+.error {
+    color: #d9534f;
+    font-size: 0.85rem;
+    display: block;
+    margin-top: 0.25rem;
+}
+
+/* Tampilan menu terbuka via JS */
+@media (max-width: 480px) {
+    #nav-toggle-btn {
+        display: block !important;
+        background: none;
+        border: none;
+        font-size: 1.8rem;
+        color: #ffffff;
+        cursor: pointer;
+        order: 2;
+    }
+
+    header nav.nav-open ul {
+        display: flex !important;
+    }
+}
