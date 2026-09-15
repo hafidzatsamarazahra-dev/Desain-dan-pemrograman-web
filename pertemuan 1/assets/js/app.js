@@ -1,4 +1,4 @@
-// ===== Hamburger menu (JS-driven, menggantikan checkbox hack) =====
+// ===== Hamburger menu (JS-driven) =====
 function initNavToggle() {
     const toggleBtn = document.getElementById("nav-toggle-btn");
     const nav = document.querySelector("header nav");
@@ -9,17 +9,17 @@ function initNavToggle() {
     });
 }
 
-// ===== Konfirmasi hapus (front-end only, belum ke server) =====
+// ===== Konfirmasi hapus (Event Delegation untuk Jobsheet 6) =====
 function initHapusConfirm() {
-    document.querySelectorAll(".btn-hapus").forEach(function (btn) {
-        btn.addEventListener("click", function () {
-            const row = btn.closest("tr");
+    document.addEventListener("click", function (e) {
+        if (e.target && e.target.classList.contains("btn-hapus")) {
+            const row = e.target.closest("tr");
             const nama = row ? row.querySelector("td")?.textContent : "data ini";
-            const yakin = confirm("Yakin ingin menghapus \"" + nama + "\"?");
+            const yakin = confirm('Yakin ingin menghapus "' + nama.trim() + '"?');
             if (yakin && row) {
                 row.remove();
             }
-        });
+        }
     });
 }
 

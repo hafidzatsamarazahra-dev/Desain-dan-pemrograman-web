@@ -26,6 +26,12 @@
         <section>
             <h2>Daftar Anggota</h2>
             <input type="text" id="search-input" placeholder="Cari data..." style="margin-bottom: 1rem; padding: 0.5rem; width: 100%; max-width: 300px;">
+            
+            <!-- Indikator loading -->
+            <p id="loading-indicator" style="display: none; text-align: center; font-style: italic;">
+                Sedang memuat data...
+            </p>
+
             <div class="table-responsive">
                 <table>
                     <thead>
@@ -37,68 +43,19 @@
                             <th>Aksi</th>
                         </tr>
                     </thead>
-                    <tbody>
-                        <tr>
-                            <td>A001</td>
-                            <td>Siti Aminah</td>
-                            <td>Malang</td>
-                            <td>0812xxxx</td>
-                            <td>
-                                <button type="button">Edit</button>
-                                <button type="button" class="btn-hapus">Hapus</button>
-                            </td>
-                        </tr>
-                        <tr>
-                            <td>A002</td>
-                            <td>Budi Santoso</td>
-                            <td>Batu</td>
-                            <td>0813xxxx</td>
-                            <td>
-                                <button type="button">Edit</button>
-                                <button type="button" class="btn-hapus">Hapus</button>
-                            </td>
-                        </tr>
-                        <tr>
-                            <td>A003</td>
-                            <td>Caleb Yizhou</td>
-                            <td>Solo</td>
-                            <td>0817xxxx</td>
-                            <td>
-                                <button type="button">Edit</button>
-                                <button type="button" class="btn-hapus">Hapus</button>
-                            </td>
-                        </tr>
-                        <tr>
-                            <td>A004</td>
-                            <td>Zayne Shen</td>
-                            <td>Bandung</td>
-                            <td>0819xxxx</td>
-                            <td>
-                                <button type="button">Edit</button>
-                                <button type="button" class="btn-hapus">Hapus</button>
-                            </td>
-                        </tr>
-                        <tr>
-                            <td>A005</td>
-                            <td>Xavier Shinghui</td>
-                            <td>Yogyakarta</td>
-                            <td>0816xxxx</td>
-                            <td>
-                                <button type="button">Edit</button>
-                                <button type="button" class="btn-hapus">Hapus</button>
-                            </td>
-                        </tr>
-                    </tbody>
+                    <!-- tbody dikosongkan karena diisi otomatis oleh JS -->
+                    <tbody></tbody>
                 </table>
             </div>
         </section>
     </main>
 
     <footer>
-        <p>&copy; 2026 SIMPUS-Mini &mdash; Jobsheet 5</p>
+        <p>&copy; 2026 SIMPUS-Mini &mdash; Jobsheet 6</p>
     </footer>
-    
-    <!-- Sudah ditambahkan ../ agar JavaScript terbaca -->
+
+    <!-- Panggil app.js dan anggota.js -->
     <script src="../assets/js/app.js"></script>
+    <script src="../assets/js/anggota.js"></script>
 </body>
 </html>
