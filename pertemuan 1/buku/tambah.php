@@ -1,31 +1,18 @@
-<!DOCTYPE html>
-<html lang="id">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>SIMPUS-Mini | Tambah Buku</title>
-    <link rel="stylesheet" href="../assets/css/style.css">
-</head>
-<body>
-    <header>
-        <h1>SIMPUS-Mini</h1>
-        <button id="nav-toggle-btn" class="menu-icon" aria-label="Toggle Menu">&#9776;</button>
+<?php
+$page_title = "Tambah Buku";
+include __DIR__ . '/../includes/header.php';
 
-        <nav>
-            <ul>
-                <li><a href="../index.html">Beranda</a></li>
-                <li><a href="list.html">Daftar Buku</a></li>
-                <li><a href="tambah.html">Tambah Buku</a></li>
-                <li><a href="../anggota/list.html">Daftar Anggota</a></li>
-                <li><a href="../anggota/tambah.html">Tambah Anggota</a></li>
-            </ul>
-        </nav>
-    </header>
-
-    <main>
+$flash = $_SESSION['flash'] ?? null;
+unset($_SESSION['flash']);
+?>
         <section>
             <h2>Tambah Buku</h2>
-            <form id="form-tambah">
+
+            <?php if ($flash): ?>
+                <p class="flash flash-<?php echo $flash['type']; ?>"><?php echo $flash['pesan']; ?></p>
+            <?php endif; ?>
+
+            <form id="form-tambah" method="post" action="proses_tambah.php">
                 <p>
                     <label for="judul">Judul</label><br>
                     <input type="text" id="judul" name="judul" required>
@@ -59,13 +46,4 @@
                 </p>
             </form>
         </section>
-    </main>
-
-    <footer>
-        <p>&copy; 2026 SIMPUS-Mini &mdash; Jobsheet 5</p>
-    </footer>
-
-    <!-- Ditambahkan ../ agar jalur JS-nya benar -->
-    <script src="../assets/js/app.js"></script>
-</body>
-</html>
+<?php include __DIR__ . '/../includes/footer.php'; ?>
