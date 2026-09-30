@@ -1,13 +1,14 @@
 <?php
 $page_title = "Beranda";
 include __DIR__ . '/includes/header.php';
+require __DIR__ . '/includes/koneksi.php';
 
-$totalBuku = count($_SESSION['buku'] ?? []);
-$totalAnggota = count($_SESSION['anggota'] ?? []);
+$totalBuku = $pdo->query("SELECT COUNT(*) FROM buku")->fetchColumn();
+$totalAnggota = $pdo->query("SELECT COUNT(*) FROM anggota")->fetchColumn();
 ?>
         <section>
-            <h2>Selamat Datang di SIMPUS-Mini</h2>
-            <p>Sistem Informasi Perpustakaan Sederhana untuk Mengelola Data Buku dan Anggota.</p>
+            <h2>Selamat Datang di Sistem Perpustakaan Mini</h2>
+            <p>Aplikasi sederhana untuk mengelola data buku dan anggota perpustakaan.</p>
         </section>
 
         <section>
