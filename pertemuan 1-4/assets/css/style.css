@@ -22,7 +22,7 @@ a:hover {
     text-decoration: underline;
 }
 
-/* ===== Header & Navbar ===== */
+/* ===== Header & Navbar (Tampilan Laptop / Layar Lebar) ===== */
 header {
     background-color: #1d5b8a;
     color: #fff;
@@ -32,26 +32,32 @@ header {
     justify-content: space-between;
     flex-wrap: wrap;
     width: 100%;
+    position: relative;
 }
 
 header h1 {
     font-size: 1.4rem;
 }
 
+#menu-toggle,
+.menu-icon {
+    display: none !important;
+}
+
+header nav {
+    display: block;
+}
+
 header nav ul {
     list-style: none;
     display: flex;
     gap: 1.25rem;
+    align-items: center;
 }
 
 header nav a {
     color: #fff;
     font-weight: 500;
-}
-
-/* Sembunyikan tombol toggle secara default di desktop */
-#nav-toggle-btn {
-    display: none;
 }
 
 /* ===== Main Layout ===== */
@@ -74,7 +80,7 @@ section h2 {
     color: #1d5b8a;
 }
 
-/* ===== Kartu Statistik (CSS Grid - Default 3 Kolom) ===== */
+/* ===== Grid Statistik ===== */
 main section:nth-of-type(2) {
     display: grid;
     grid-template-columns: repeat(3, 1fr);
@@ -191,7 +197,6 @@ form button[type="submit"]:hover {
     background-color: #164869;
 }
 
-/* Tampilan pesan error dari JS */
 .error {
     color: #d9534f;
     font-size: 0.85rem;
@@ -207,45 +212,33 @@ footer {
     font-size: 0.9rem;
 }
 
-/* ===== Media Query Tablet (≤ 768px) ===== */
-@media (max-width: 768px) {
-    main section:nth-of-type(2) {
-        grid-template-columns: repeat(2, 1fr);
-    }
-}
-
-/* ===== Media Query Mobile (≤ 480px) ===== */
-@media (max-width: 480px) {
-    header h1 {
-        order: 1;
-    }
-
-    #nav-toggle-btn {
-        display: block;
-        background: none;
-        border: none;
+/* ===== RESPONSIF HP (Aktif HANYA jika layar ≤ 600px) ===== */
+@media (max-width: 600px) {
+    /* Munculkan garis tiga di HP */
+    .menu-icon {
+        display: block !important;
         font-size: 1.8rem;
         color: #ffffff;
         cursor: pointer;
-        order: 2;
+        user-select: none;
     }
 
     header nav {
         width: 100%;
-        order: 3;
     }
 
-    /* Menu disembunyikan secara default di layar HP */
     header nav ul {
         display: none;
         flex-direction: column;
         width: 100%;
         margin-top: 1rem;
-        gap: 0.5rem;
+        gap: 0.75rem;
+        background-color: #164869;
+        padding: 1rem;
+        border-radius: 6px;
     }
 
-    /* Tampilkan menu saat JS menambahkan class .nav-open */
-    header nav.nav-open ul {
+    #menu-toggle:checked ~ nav ul {
         display: flex;
     }
 
