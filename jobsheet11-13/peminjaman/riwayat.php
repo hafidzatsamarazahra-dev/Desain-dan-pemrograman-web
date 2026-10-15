@@ -1,8 +1,10 @@
 <?php
+require_once dirname(__DIR__) . '/includes/koneksi.php';
+require_once dirname(__DIR__) . '/includes/csrf.php';
+require_once dirname(__DIR__) . '/includes/helpers.php'; // <-- Tambahkan baris ini
 require __DIR__ . '/../includes/auth.php';
 $page_title = "Riwayat Peminjaman";
 include __DIR__ . '/../includes/header.php';
-require __DIR__ . '/../includes/koneksi.php';
 
 $anggotaId = $_GET['anggota_id'] ?? '';
 $daftarAnggota = $pdo->query("SELECT * FROM anggota ORDER BY nama")->fetchAll(PDO::FETCH_ASSOC);

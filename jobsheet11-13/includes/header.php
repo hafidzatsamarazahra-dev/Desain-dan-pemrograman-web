@@ -35,12 +35,16 @@ $base = $__rel === '' ? '' : str_repeat('../', substr_count($__rel, '/') + 1);
                 <?php endif; ?>
             </ul>
         </nav>
-        <div class="auth-status">
+        <div class="auth-status" style="margin-left: auto; padding: 10px;">
             <?php if (!empty($_SESSION['user_id'])): ?>
-                <span>Halo, <?php echo htmlspecialchars($_SESSION['username'] ?? 'Petugas'); ?></span>
-                <a href="<?php echo $base; ?>auth/logout.php">Logout</a>
+                <span style="color: #fff; margin-right: 10px;">
+                    Halo, <?php echo htmlspecialchars($_SESSION['username'] ?? 'Petugas'); ?>
+                </span>
+                <a href="<?php echo $base; ?>auth/logout.php" style="color: #ff4d4d; font-weight: bold; background: #fff; padding: 5px 12px; border-radius: 4px; text-decoration: none;">
+                    Logout
+                </a>
             <?php else: ?>
-                <a href="<?php echo $base; ?>auth/login.php">Login</a>
+                <a href="<?php echo $base; ?>auth/login.php" style="color: #fff; font-weight: bold;">Login</a>
             <?php endif; ?>
         </div>
     </header>

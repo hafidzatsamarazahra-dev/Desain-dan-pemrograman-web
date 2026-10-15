@@ -1,5 +1,4 @@
 <?php
-require __DIR__ . '/../includes/auth.php'; // 1. Wajib login
 $page_title = "Daftar Buku";
 include __DIR__ . '/../includes/header.php';
 require __DIR__ . '/../includes/koneksi.php';
@@ -9,7 +8,7 @@ unset($_SESSION['flash']);
 
 $perPage = 5;
 $page = max(1, (int) ($_GET['page'] ?? 1));
-$offset = ($page - 1) * $perPage; // 2. Perbaikan baris offset yang terpotong
+$offset = ($page - 1) * $perPage;
 $keyword = trim($_GET['q'] ?? '');
 
 if ($keyword !== '') {
@@ -41,7 +40,7 @@ $totalPages = max(1, (int) ceil($totalRows / $perPage));
                 <form method="get" action="list.php">
                     <span>
                         <label for="search-input">Cari Judul Buku</label><br>
-                        <input type="text" id="search-input" name="q" value="<?php echo e($keyword); ?>" placeholder="Ketik judul buku...">
+                        <input type="text" id="search-input" name="q" value="<?php echo $keyword; ?>" placeholder="Ketik judul buku...">
                     </span>
                     <button type="submit">Cari</button>
                 </form>
@@ -66,16 +65,14 @@ $totalPages = max(1, (int) ceil($totalRows / $perPage));
                     <?php else: ?>
                         <?php foreach ($daftarBuku as $buku): ?>
                         <tr>
-                            <!-- 3. Dilindungi fungsi e() untuk mencegah XSS -->
-                            <td><?php echo e($buku['judul']); ?></td>
-                            <td><?php echo e($buku['pengarang']); ?></td>
-                            <td><?php echo e($buku['tahun']); ?></td>
-                            <td><?php echo e($buku['stok']); ?></td>
+                            <td><?php echo $buku['judul']; ?></td>
+                            <td><?php echo $buku['pengarang']; ?></td>
+                            <td><?php echo $buku['tahun']; ?></td>
+                            <td><?php echo $buku['stok']; ?></td>
                             <td>
                                 <a href="edit.php?id=<?php echo $buku['id']; ?>" class="btn-edit">Edit</a>
                                 <form class="form-hapus" method="post" action="hapus.php">
                                     <input type="hidden" name="id" value="<?php echo $buku['id']; ?>">
-                                    <?php echo csrf_field(); ?> <!-- 4. Ditambahkan Token CSRF -->
                                     <button type="submit" class="btn-hapus">Hapus</button>
                                 </form>
                             </td>

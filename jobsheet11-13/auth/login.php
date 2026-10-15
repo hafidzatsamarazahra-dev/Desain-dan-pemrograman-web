@@ -1,4 +1,7 @@
 <?php
+require_once dirname(__DIR__) . '/includes/koneksi.php';
+require_once dirname(__DIR__) . '/includes/csrf.php'; // <-- Tambahkan baris ini di atas
+// ... kode selanjutnya ...
 if (session_status() === PHP_SESSION_NONE) {
     session_start();
 }

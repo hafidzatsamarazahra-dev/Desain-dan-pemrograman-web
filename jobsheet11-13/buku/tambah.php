@@ -1,4 +1,7 @@
 <?php
+require_once dirname(__DIR__) . '/includes/koneksi.php';
+require_once dirname(__DIR__) . '/includes/csrf.php'; // <-- Tambahkan baris ini
+// ... kode selanjutnya ...
 require __DIR__ . '/../includes/auth.php';
 $page_title = "Tambah Buku";
 include __DIR__ . '/../includes/header.php';

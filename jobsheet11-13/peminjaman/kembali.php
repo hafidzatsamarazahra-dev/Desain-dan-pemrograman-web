@@ -1,9 +1,10 @@
 <?php
-require_once dirname(__DIR__) . '/includes/auth.php';
-$page_title = "Pengembalian Buku";
-include dirname(__DIR__) . '/includes/header.php';
-require_once dirname(__DIR__) . '/includes/csrf.php';
 require_once dirname(__DIR__) . '/includes/koneksi.php';
+require_once dirname(__DIR__) . '/includes/csrf.php';
+require_once dirname(__DIR__) . '/includes/helpers.php'; // <-- Tambahkan baris ini
+require __DIR__ . '/../includes/auth.php';
+$page_title = "Pengembalian Buku";
+include __DIR__ . '/../includes/header.php';
 
 $flash = $_SESSION['flash'] ?? null;
 unset($_SESSION['flash']);

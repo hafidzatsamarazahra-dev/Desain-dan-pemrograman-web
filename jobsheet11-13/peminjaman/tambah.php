@@ -1,8 +1,10 @@
 <?php
+require_once dirname(__DIR__) . '/includes/koneksi.php';
+require_once dirname(__DIR__) . '/includes/csrf.php';
+require_once dirname(__DIR__) . '/includes/helpers.php'; // <-- Tambahkan baris ini
 require __DIR__ . '/../includes/auth.php';
 $page_title = "Peminjaman Baru";
 include __DIR__ . '/../includes/header.php';
-require __DIR__ . '/../includes/koneksi.php';
 
 $flash = $_SESSION['flash'] ?? null;
 unset($_SESSION['flash']);

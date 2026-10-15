@@ -1,4 +1,6 @@
 <?php
+require_once dirname(__DIR__) . '/includes/koneksi.php';
+require_once dirname(__DIR__) . '/includes/csrf.php'; // <-- Tambahkan baris ini
 require __DIR__ . '/../includes/auth.php';
 $page_title = "Tambah Anggota";
 include __DIR__ . '/../includes/header.php';
